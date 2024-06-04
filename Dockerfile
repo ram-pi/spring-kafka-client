@@ -7,8 +7,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-#FROM eclipse-temurin:17.0.11_9-jre-ubi9-minimal
-FROM azul/zulu-openjdk-debian:17-jre-latest
+FROM eclipse-temurin:17.0.11_9-jre-ubi9-minimal
+#FROM azul/zulu-openjdk-debian:17-jre-latest
 WORKDIR /app
 COPY --from=build /app/target/app.jar .
 CMD ["java", "-jar", "app.jar"]
